@@ -28,3 +28,29 @@ Feature: Associate and update a student's address
       | Alice   | 123 Main Street     | 101 Oak Road         |
       | Bob     | 456 Central Street  | 500 Elm Street       |
       | Claire  | 789 Paris Avenue    | 1000 Sunset Boulevard |
+
+
+  Scenario Outline: Anomaly when a student is associated with a null or empty address
+    Given a student named "<name>" without an address
+    When I attempt to associate the student "<name>" with an address "<street>"
+    Then an anomaly should be generated indicating that the address cannot be null or empty
+
+    Examples:
+      | name   | street             |
+      | Alice  | 1 rue victor hugo  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
