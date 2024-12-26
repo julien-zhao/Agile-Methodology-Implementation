@@ -1,37 +1,33 @@
 package Test;
 
 import io.cucumber.java.en.*;
-import org.example.Adresse;
-import org.example.Etudiant;
-
+import org.example.Address;
+import org.example.Student;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class feature {
-    private Etudiant etudiant;
-    private Adresse adresse;
+    private Student student;
+    private Address address;
 
-    @Given("un étudiant nommé {string}")
-    public void un_etudiant_nomme(String nom) {
-        etudiant = new Etudiant(nom);
+    @Given("a student named {string}")
+    public void a_student_named(String name) {
+        student = new Student(name);
     }
 
-    @Given("une adresse {string}")
-    public void une_adresse(String rue) {
-        adresse = new Adresse(rue);
+    @Given("an address {string}")
+    public void an_address(String street) {
+        address = new Address(street);
     }
 
-    @When("j'associe l'étudiant à l'adresse")
-    public void j_associe_etudiant_a_adresse() {
-        etudiant.setAdresse(adresse);
+    @When("I associate the student with the address")
+    public void i_associate_student_with_address() {
+        student.setAddress(address);
     }
 
-    @Then("l'étudiant devrait avoir l'adresse {string}")
-    public void letudiant_devrait_avoir_ladresse(String rue) {
-        assertEquals(rue, etudiant.getAdresse().getRue());
+    @Then("the student should have the address {string}")
+    public void the_student_should_have_the_address(String street) {
+        assertEquals(street, student.getAddress().getStreet());
     }
 
-    @Then("l'adresse devrait être associée à l'étudiant {string}")
-    public void ladresse_devrait_etre_associee_a_letudiant(String nom) {
-        assertEquals(nom, adresse.getEtudiant().getNom());
-    }
+
 }
