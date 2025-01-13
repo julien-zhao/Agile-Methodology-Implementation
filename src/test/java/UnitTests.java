@@ -5,7 +5,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class StudentTest {
+public class UnitTests {
     @Test
     void testUnidirectionalAssociation() {
         Address address = new Address("123 Main Street");

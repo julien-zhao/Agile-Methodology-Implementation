@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Steps {
+public class Old {
 
     private final Map<String, String> studentAddressMap = new HashMap<>();
 
@@ -28,6 +28,7 @@ public class Steps {
     public void the_student_should_have_the_address(String name, String address) {
         assert studentAddressMap.get(name).equals(address) : "Expected address to be " + address + " but got " + studentAddressMap.get(name);
     }
+
 
 
 
