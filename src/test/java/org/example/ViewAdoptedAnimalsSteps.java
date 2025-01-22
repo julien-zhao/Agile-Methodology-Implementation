@@ -18,14 +18,14 @@ public class ViewAdoptedAnimalsSteps {
         student = new Student(studentName);
     }
 
-    @Given("the animals adopted by {string} are:")
+    @And("the animals adopted by {string} are:")
     public void theAnimalsAdoptedByAre(String studentName, io.cucumber.datatable.DataTable dataTable) {
         dataTable.asMaps().forEach(row -> {
             String name = row.get("Name");
             String type = row.get("Type");
             Animal animal = new Animal(name, type);
-            student.adoptAnimal(animal); // Ajoute l'animal adopté à l'étudiant
-            adoptedAnimals.add(animal); // Sauvegarde dans la liste locale pour vérifier plus tard
+            student.adoptAnimal(animal);
+            adoptedAnimals.add(animal);
         });
     }
 
@@ -49,7 +49,6 @@ public class ViewAdoptedAnimalsSteps {
             Assert.assertTrue("Expected animal not found: " + name, found);
         }
 
-        // Vérifiez également que la taille des listes correspond
         Assert.assertEquals("Mismatch in the number of animals", expectedAdoptedAnimals.size(), adoptedAnimals.size());
     }
 }

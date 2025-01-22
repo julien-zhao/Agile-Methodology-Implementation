@@ -19,7 +19,7 @@ public class AdoptionSteps {
         student = new Student(studentName);
     }
 
-    @Given("the available animals are:")
+    @And("the available animals are:")
     public void theAvailableAnimalsAre(io.cucumber.datatable.DataTable dataTable) {
         dataTable.asMaps().forEach(row -> {
             String name = row.get("Name");
@@ -55,7 +55,7 @@ public class AdoptionSteps {
         }
     }
 
-    @Then("the adoption status of {string} is {string}")
+    @And("the adoption status of {string} is {string}")
     public void theAdoptionStatusOfIs(String animalName, String expectedStatus) {
         Animal animal = availableAnimals.get(animalName);
         boolean isAdopted = Boolean.parseBoolean(expectedStatus);

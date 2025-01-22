@@ -10,7 +10,6 @@ public class AdoptionObserver implements Observer {
     @Override
     public void update(String message) {
         notifications.add(message);
-        //System.out.println("Notification: " + message);
     }
 
     public List<String> getNotifications() {
