@@ -12,8 +12,8 @@ public class UnitTests {
         Student student = new Student("Alice");
 
         assertNull(student.getAddress());
+        student.setAddress(address);
 
-        setStudentAddress(student, address);
 
         assertEquals(address, student.getAddress());
         assertEquals("123 Main Street", address.getStreet());
@@ -23,9 +23,6 @@ public class UnitTests {
         assertNull(student.getAddress());
     }
 
-    private void setStudentAddress(Student student, Address address) {
-        student.setAddress(address);
-    }
 
 
 //*****************************************************************************//
