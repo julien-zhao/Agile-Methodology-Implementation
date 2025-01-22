@@ -79,7 +79,7 @@ public class UnitTests {
         Animal animal = new Animal("Dog","Woof!");
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            animal.setAnimalName("");  // Essayer de définir un nom vide
+            animal.setAnimalName("");
         });
 
         assertEquals("Name cannot be null or empty", exception.getMessage());
@@ -100,26 +100,21 @@ public class UnitTests {
 
     @Test
     void testAdoptAnimalSuccessfully() {
-        // Arrange
         Student student = new Student("Bob");
         Animal animal = new Animal("Dog", "Woof!");
 
-        // Act
         student.adoptAnimal(animal);
 
-        // Assert
         assertTrue(animal.isAdopted());
         assertTrue(student.getAdoptedAnimals().contains(animal));
     }
 
     @Test
     void testAdoptAnimalAlreadyAdopted() {
-        // Arrange
         Student student = new Student("Bob");
         Animal animal = new Animal("Dog", "Woof!");
         student.adoptAnimal(animal);
 
-        // Act & Assert
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             student.adoptAnimal(animal);
         });
@@ -129,10 +124,8 @@ public class UnitTests {
 
     @Test
     void testAdoptNullAnimal() {
-        // Arrange
         Student student = new Student("Alice");
 
-        // Act & Assert
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             student.adoptAnimal(null);
         });
@@ -146,26 +139,21 @@ public class UnitTests {
     //********************************Release Animal*********************************************//
     @Test
     void testReleaseAnimalSuccessfully() {
-        // Arrange
         Student student = new Student("Bob");
         Animal animal = new Animal("Dog", "Woof!");
         student.adoptAnimal(animal);
 
-        // Act
         student.releaseAnimal(animal);
 
-        // Assert
         assertFalse(animal.isAdopted());
         assertFalse(student.getAdoptedAnimals().contains(animal));
     }
 
     @Test
     void testReleaseAnimalNotAdopted() {
-        // Arrange
         Student student = new Student("Bob");
         Animal animal = new Animal("Dog", "Woof!");
 
-        // Act & Assert
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             student.releaseAnimal(animal);
         });
@@ -175,10 +163,8 @@ public class UnitTests {
 
     @Test
     void testReleaseNullAnimal() {
-        // Arrange
         Student student = new Student("Alice");
 
-        // Act & Assert
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             student.releaseAnimal(null);
         });
