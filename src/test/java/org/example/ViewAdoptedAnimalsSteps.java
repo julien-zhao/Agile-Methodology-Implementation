@@ -18,6 +18,8 @@ public class ViewAdoptedAnimalsSteps {
         student = new Student(studentName);
     }
 
+
+
     @And("the animals adopted by {string} are:")
     public void theAnimalsAdoptedByAre(String studentName, io.cucumber.datatable.DataTable dataTable) {
         dataTable.asMaps().forEach(row -> {

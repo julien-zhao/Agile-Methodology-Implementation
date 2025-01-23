@@ -18,3 +18,4 @@ Feature: Viewing the list of adopted animals
     Examples:
       | studentName | animal1 | type1 | animal2 | type2 |
       | Alice       | Titi    | Cat   | Bella   | Cat   |
+      | Bob         | Toto    | Cat   | Bella   | Cat   |
